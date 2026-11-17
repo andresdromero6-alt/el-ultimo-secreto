@@ -143,7 +143,10 @@ stages[2]["intro"] = ["Junto a los lockers hay un sobre con ocho letras desorden
 stages[2]["pattern"] = "E_ L_C__R"
 stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
 stages[4]["intro"] = ["Sobre la mesa hay cinco objetos casi iguales. Antes de tocarlos, resuelve esto."]
-stages[5]["intro"] = ["Cuatro sospechosos dejaron su declaración. Discútanlo entre los cuatro y respondan lo mismo en cada teléfono."]
+stages[5]["intro"] = ["Reúnan las cuatro declaraciones que encontraron en los sobres de las estaciones 1 a 4. Discútanlas entre los cuatro y respondan lo mismo en cada teléfono."]
+for k in (1, 2, 3, 4):
+    stages[k]["reveal"] = dict(stages[k]["reveal"])
+    stages[k]["reveal"]["text"] += "\n\nEn el sobre de esta estación hay también la declaración de un sospechoso. Guárdenla: la necesitarán en la estación 5."
 META = dict(
  detective=("Tu estación: la 3, el testigo.", "Tu trabajo es dudar y comparar versiones. Te toca responder la estación 3. En las demás acompañas a tu equipo, y la quinta la resuelven entre todos."),
  criptografo=("Tu estación: la 2, el mensaje oculto.", "Tú lees lo que los demás no pueden leer. Te toca responder la estación 2. En las demás acompañas a tu equipo, y la quinta la resuelven entre todos."),
