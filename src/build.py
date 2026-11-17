@@ -13,7 +13,7 @@ common = [
       reveal=dict(label="Mensaje del QR 1", text="Busquen el reloj: está debajo de los lockers. Detrás tiene el QR 1, que dice el número del locker, y la llave de ese locker pegada al papel.", next="Vayan a la estación 2: los lockers que están a un lado de la Biblioteca.")),
  dict(tag="2", title="El mensaje oculto", place="Lockers a un lado de la Biblioteca",
       intro=["Daniel escondió el mismo lugar de cuatro maneras, una para cada investigador."],
-      reveal=dict(label="Nota dentro del locker", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: el kiosco que está al frente del Bloque D. Busquen debajo de la mesa marcada.")),
+      reveal=dict(label="Nota dentro del locker 37", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: el kiosco que está al frente del Bloque D. Busquen debajo de la mesa marcada.")),
  dict(tag="3", title="El testigo silencioso", place="Kiosco al frente del Bloque D",
       intro=["Un testigo dejó tres declaraciones sobre esa noche. Cada investigador debe sacarles algo distinto."],
       reveal=dict(label="Mensaje del QR 2", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4: Bloque B. Busquen detrás del cartel de ruta de evacuación.")),
@@ -27,7 +27,7 @@ common = [
 
 BANCA = ["banca", "bancas", "banco", "bancos", "unabanca", "labanca"]
 RELOJ = ["reloj", "relojes", "elreloj", "unreloj"]
-ARMARIO = ["ellocker", "locker", "unlocker", "loker", "elloker"]
+ARMARIO = ["ellocker37", "locker37", "elloker37", "loker37", "ellockernumero37", "ellocker#37"]
 LLAVE = ["llave", "llaves", "lallave", "unallave"]
 MARTIN = ["martin"]
 SUS = [dict(who="Samuel"), dict(who="Martín"), dict(who="Laura"), dict(who="Andrés")]
@@ -68,9 +68,9 @@ roles = dict(
    dict(type="text", clue="Cada letra de este mensaje está un paso adelante de la verdadera:\n\nS F M P K",
         question="¿Qué palabra escondió Daniel?", pattern="R____", accept=RELOJ,
         hints=["Retrocede cada letra una posición en el abecedario.", "S se convierte en R y F en E.", "La respuesta es RELOJ."]),
-   dict(type="text", clue="Ocho letras revueltas. Forman dos palabras.", tiles=list("REKLOCLE"),
+   dict(type="text", clue="Diez fichas revueltas: ocho letras y dos números. Forman dos palabras y un número.", tiles=list("R7EKL3OCLE"),
         question="¿Qué dicen las letras?", pattern="E_ L____R", accept=ARMARIO,
-        hints=["Forman el nombre de un lugar donde se guardan cosas bajo llave.", "La primera palabra es EL y la segunda empieza con L y termina en R.", "La respuesta es EL LOCKER."]),
+        hints=["Forman el nombre de un lugar donde se guardan cosas bajo llave, con su número.", "Empieza con EL, sigue una palabra que empieza con L y termina en R, y al final va un número de dos cifras.", "La respuesta es EL LOCKER 37."]),
    dict(type="text", clue="El testigo escribió una de sus declaraciones al revés para que nadie más la leyera:\n\n" + "A las 8:00, alguien salió apresuradamente."[::-1],
         question="¿A qué hora salió alguien apresuradamente?", accept=["800", "8", "ocho", "lasocho", "alasocho", "alas8", "alas800", "las8", "las800", "8pm", "8am"],
         hints=["Lee el mensaje de derecha a izquierda.", "La hora está casi al final del texto que ves.", "Salió a las 8:00."]),
@@ -139,8 +139,8 @@ for k, c in enumerate(common):
     s = dict(c); s.update(roles[SRC[k]]["ch"][k]); s["owner"] = OWN[k]; stages.append(s)
 stages[0]["intro"] = ["Ya tienen sus tarjetas de rol, sus pulseras y el mensaje de Daniel. La primera señal es para todos."]
 stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
-stages[2]["intro"] = ["Junto a los lockers hay un sobre con ocho letras desordenadas."]
-stages[2]["pattern"] = "E_ L_C__R"
+stages[2]["intro"] = ["A un lado de la Biblioteca están los lockers. Junto a ellos hay un sobre con letras y números desordenados."]
+stages[2]["pattern"] = "E_ L_C__R __"
 stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
 stages[4]["intro"] = ["En el sobre hay cinco tarjetas casi iguales. Antes de mirarlas, resuelve esto."]
 stages[5]["intro"] = ["Reúnan las cuatro declaraciones que encontraron en los sobres de las estaciones 1 a 4. Discútanlas entre los cuatro y respondan lo mismo en cada teléfono."]
