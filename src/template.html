@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>El Último Secreto por Roles</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;500;700&family=IM+Fell+English+SC&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
+<style>
+@font-face { font-family: "And The Door Creeeaked"; src: url("data:font/woff;base64,__FONT__") format("woff"); font-display: swap; }
+:root {
+  /* Mapa del tesoro rescatado del fuego: página negra de hollín, pistas en pergamino con bordes
+     quemados e irregulares, rojo sangre solo para lo que marca el camino. Una columna, para teléfono. */
+  color-scheme: dark;
+  --black: #000000;
+  --red: #B50000;
+  --tan: #BD8E4A;
+  --brown: #996B2B;
+  --char: #170d04;
+  --bone: #ecd6a8;
+  --f-display: "IM Fell English SC", "Palatino Linotype", Palatino, Georgia, serif;
+  --f-title: "And The Door Creeeaked", "IM Fell English SC", Georgia, serif;
+  --f-type: "IM Fell English", "Palatino Linotype", Palatino, Georgia, serif;
+  --f-body: "Alegreya Sans", "Trebuchet MS", "Helvetica Neue", Arial, sans-serif;
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background-color: var(--black);
+  background-image: radial-gradient(110% 420px at 50% 0, rgba(181, 0, 0, .34), rgba(153, 107, 43, .10) 55%, transparent 100%);
+  background-repeat: no-repeat;
+  color: var(--bone);
+  font-family: var(--f-body);
+  font-size: 18px;
+  line-height: 1.45;
+}
+.wrap { max-width: 640px; margin: 0 auto; padding: 30px 18px 72px; display: flex; flex-direction: column; gap: 38px; }
+h1, h2, h3 { font-family: var(--f-display); font-weight: 400; margin: 0; text-wrap: balance; }
+p { margin: 0; }
+button, input, select { font: inherit; }
+:focus-visible { outline: 3px solid var(--bone); outline-offset: 2px; }
+.station :focus-visible, .finale :focus-visible { outline-color: var(--black); }
+
+/* Portada */
+.hero { display: flex; flex-direction: column; gap: 14px; }
+.eyebrow { font-family: var(--f-display); letter-spacing: .1em; font-size: 17px; color: var(--tan); }
+h1 { font-family: var(--f-title); font-size: clamp(64px, 21vw, 124px); line-height: .9; color: var(--tan); text-shadow: 0 0 26px rgba(181, 0, 0, .55); }
+h1 .tape { display: inline-block; position: relative; isolation: isolate; color: var(--bone); padding: .02em .16em .1em; margin-left: -.06em; transform: rotate(-2deg); text-shadow: none; }
+h1 .tape::before { content: ""; position: absolute; inset: 0; z-index: -1; background: var(--red); filter: url(#rough); }
+.lede { max-width: 46ch; }
+.facts { display: flex; flex-wrap: wrap; gap: 8px; list-style: none; padding: 0; margin: 4px 0 0; }
+.facts li { border: 1px solid var(--brown); color: var(--tan); padding: 3px 10px; font-family: var(--f-display); letter-spacing: .05em; font-size: 16px; }
+
+/* Pergamino quemado: carta, estación en curso y cierre */
+.paper, .station, .finale { position: relative; isolation: isolate; color: var(--char); }
+.paper::before, .station::before, .finale::before {
+  content: ""; position: absolute; inset: 0; z-index: -1;
+  background:
+    radial-gradient(circle at 100% 0, #000 0, #000 16px, rgba(34, 14, 2, .92) 38px, transparent 90px),
+    radial-gradient(circle at 100% 100%, #000 0, #000 24px, rgba(34, 14, 2, .92) 50px, transparent 110px),
+    radial-gradient(circle at 0 0, rgba(34, 14, 2, .75) 0, transparent 36px),
+    radial-gradient(circle at 3% 97%, rgba(34, 14, 2, .7) 0, transparent 54px),
+    radial-gradient(ellipse at 28% 62%, rgba(153, 107, 43, .95), transparent 62%),
+    radial-gradient(ellipse at 80% 30%, rgba(153, 107, 43, .6), transparent 50%),
+    var(--tan);
+  box-shadow: inset 0 0 26px 8px rgba(34, 14, 2, .8);
+  filter: url(#rough);
+}
+.paper { font-family: var(--f-type); font-size: 19px; line-height: 1.4; padding: 26px 24px; }
+.paper .from { margin-top: 12px; font-family: var(--f-display); font-size: 24px; color: var(--red); }
+.letter { transform: rotate(-.6deg); }
+.letter p + p { margin-top: 10px; }
+
+h2 { font-family: var(--f-title); font-size: 38px; line-height: 1; color: var(--tan); display: flex; gap: 10px; align-items: baseline; }
+h2::before { content: "✕"; color: var(--red); font-family: var(--f-body); font-weight: 700; font-size: 24px; }
+.section { display: flex; flex-direction: column; gap: 14px; }
+
+.roles { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; list-style: none; padding: 0; margin: 0; }
+.roles li { border: 1px solid var(--brown); background: rgba(153, 107, 43, .14); padding: 12px; display: flex; flex-direction: column; gap: 2px; }
+.roles b { font-family: var(--f-display); font-weight: 400; font-size: 23px; color: var(--tan); }
+.roles b span { color: var(--bone); background: var(--red); padding: 0 7px; margin-right: 8px; }
+.roles small { font-size: 16px; line-height: 1.35; }
+@media (max-width: 420px) { .roles { grid-template-columns: 1fr; } }
+
+details.rules { border: 1px dashed var(--brown); }
+details.rules summary { cursor: pointer; padding: 12px 14px; font-family: var(--f-display); font-size: 19px; color: var(--tan); }
+details.rules ol { margin: 0; padding: 0 18px 14px 36px; font-size: 16.5px; display: flex; flex-direction: column; gap: 6px; }
+
+/* Ruta del mapa */
+.track { position: relative; display: flex; flex-wrap: wrap; gap: 14px; list-style: none; padding: 0; margin: 0; }
+.track::before { content: ""; position: absolute; left: 0; right: 0; top: 19px; border-top: 2px dashed var(--brown); }
+.track li { position: relative; width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center; font-family: var(--f-display); font-size: 20px; color: var(--brown); background: var(--black); border: 2px dashed var(--brown); }
+.track li.done { background: var(--red); border: 2px solid var(--red); color: var(--bone); }
+.track li.now { background: var(--tan); border: 2px solid var(--tan); color: var(--black); }
+.status { color: var(--tan); font-size: 16px; }
+
+/* Estaciones */
+#stations { display: flex; flex-direction: column; gap: 14px; }
+.solved { border-left: 4px solid var(--red); background: rgba(153, 107, 43, .16); }
+.solved summary { cursor: pointer; padding: 12px 14px; display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; }
+.solved summary b { font-family: var(--f-display); font-weight: 400; font-size: 21px; color: var(--tan); }
+.solved summary span { font-size: 16px; }
+.solved .body { padding: 2px 14px 18px; display: flex; flex-direction: column; gap: 12px; }
+.label { font-family: var(--f-display); letter-spacing: .08em; font-size: 16px; color: var(--tan); }
+.station .label { color: var(--red); font-size: 19px; }
+
+.gate { border: 2px dashed var(--brown); padding: 18px; display: flex; flex-direction: column; gap: 12px; align-items: flex-start; }
+
+.station { padding: 30px 24px 30px; display: flex; flex-direction: column; gap: 14px; }
+.station header { display: flex; flex-direction: column; gap: 2px; }
+.station h3 { font-family: var(--f-title); font-size: 42px; line-height: .98; }
+.place { font-style: italic; font-size: 16.5px; }
+.station .paper, .finale .paper { padding: 2px 0 2px 14px; border-left: 4px solid var(--red); font-size: 21px; }
+.station .paper::before, .finale .paper::before { display: none; }
+.station .paper, .solved .paper, .finale > .paper { white-space: pre-line; }
+.question { font-weight: 700; }
+.tiles { display: flex; flex-wrap: wrap; gap: 6px; }
+.tiles span { width: 36px; height: 42px; display: grid; place-items: center; background: var(--black); color: var(--tan); font-family: var(--f-display); font-size: 24px; }
+.blanks { display: flex; flex-wrap: wrap; gap: 5px; }
+.blanks span { width: 30px; height: 38px; display: grid; place-items: center; border-bottom: 3px solid var(--red); font-family: var(--f-display); font-size: 26px; color: var(--char); }
+.blanks span.gap { border: 0; width: 12px; }
+
+.answer { display: flex; gap: 8px; flex-wrap: wrap; }
+.answer input, select { padding: 11px 12px; background: rgba(0, 0, 0, .12); color: var(--char); border: 2px solid var(--char); border-radius: 0; font-size: 19px; font-weight: 500; }
+.answer input { flex: 1 1 180px; min-width: 0; }
+.answer input::placeholder { color: rgba(23, 13, 4, .6); }
+.answer input.code { font-family: var(--f-display); letter-spacing: .3em; font-size: 24px; }
+select { width: 100%; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field label { font-weight: 700; }
+
+.btn:not(.ghost) { font-family: var(--f-title); font-size: 27px; letter-spacing: .02em; }
+.btn { cursor: pointer; border: 0; border-radius: 0; background: var(--red); color: var(--bone); padding: 9px 20px 11px; font-family: var(--f-display); letter-spacing: .04em; font-size: 22px; box-shadow: 3px 3px 0 var(--black); }
+.btn:hover { background: #d10000; }
+.btn:disabled { opacity: .5; cursor: default; }
+.btn.ghost { background: transparent; color: inherit; border: 2px solid currentColor; box-shadow: none; font-size: 18px; padding: 6px 14px 8px; }
+.btn.ghost:hover { background: rgba(153, 107, 43, .25); }
+
+.pick { display: flex; flex-direction: column; gap: 8px; }
+.pick button { cursor: pointer; text-align: left; background: rgba(0, 0, 0, .1); color: var(--char); border: 2px solid var(--char); border-radius: 0; padding: 10px 12px; display: flex; gap: 12px; align-items: center; }
+.pick button .n { flex: none; width: 32px; height: 32px; display: grid; place-items: center; border: 2px solid var(--char); border-radius: 50%; font-family: var(--f-display); font-size: 20px; }
+.pick button[aria-pressed="true"] { border-color: var(--red); background: rgba(181, 0, 0, .12); }
+.pick button[aria-pressed="true"] .n { background: var(--red); border-color: var(--red); color: var(--bone); }
+.pick .who { display: block; font-family: var(--f-display); font-size: 22px; line-height: 1.1; }
+.pick .say { font-family: var(--f-type); font-size: 18px; }
+.row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+.feedback { min-height: 1.45em; color: #5c0000; font-weight: 700; }
+.hints { border-top: 2px dashed rgba(23, 13, 4, .55); padding-top: 12px; display: flex; flex-direction: column; gap: 8px; align-items: flex-start; }
+.hint { background: rgba(0, 0, 0, .14); padding: 8px 12px; font-size: 17px; width: 100%; }
+.hint b { font-family: var(--f-display); font-weight: 400; font-size: 18px; color: #5c0000; margin-right: 8px; }
+.sealed { color: var(--tan); font-size: 16px; }
+
+/* Cierre */
+.finale { padding: 34px 24px 34px; display: flex; flex-direction: column; gap: 16px; }
+.finale h2 { font-size: clamp(44px, 13vw, 68px); line-height: .9; color: var(--char); display: block; }
+.finale h2::before { display: block; font-size: 54px; line-height: 1; margin-bottom: 6px; }
+.finale ul { margin: 0; padding-left: 20px; display: flex; flex-direction: column; gap: 6px; }
+.clue-label { font-family: var(--f-title); font-size: 32px; color: #5c0000; }
+
+footer { border-top: 1px dashed var(--brown); padding-top: 16px; display: flex; flex-direction: column; gap: 10px; align-items: flex-start; color: var(--tan); font-size: 15.5px; }
+
+[hidden] { display: none !important; }
+.view { display: flex; flex-direction: column; gap: 38px; }
+.rule { font-family: var(--f-display); font-size: 21px; letter-spacing: .06em; color: var(--bone); background: var(--red); align-self: flex-start; padding: 2px 12px 4px; }
+.rolecards { display: grid; grid-template-columns: 1fr; gap: 12px; }
+@media (min-width: 560px) { .rolecards { grid-template-columns: 1fr 1fr; } }
+.rolecard { cursor: pointer; text-align: left; color: var(--bone); background: rgba(153, 107, 43, .14); border: 1px solid var(--brown); border-radius: 0; padding: 16px; display: flex; flex-direction: column; gap: 6px; }
+.rolecard:hover { border-color: var(--tan); background: rgba(153, 107, 43, .26); }
+.rolecard .num { font-family: var(--f-display); font-size: 17px; letter-spacing: .08em; color: var(--tan); }
+.rolecard .nm { font-family: var(--f-title); font-size: 40px; line-height: 1; color: var(--tan); }
+.rolecard .skill { font-family: var(--f-type); font-style: italic; font-size: 18px; color: var(--tan); }
+.rolecard.asking { cursor: default; border: 2px solid var(--red); }
+.rolecard.asking:hover { background: rgba(153, 107, 43, .14); }
+.rolehead { display: flex; flex-direction: column; gap: 10px; }
+.rolehead h1 { font-size: clamp(56px, 17vw, 100px); }
+.rolehead details { border: 1px dashed var(--brown); }
+.rolehead summary { cursor: pointer; padding: 10px 14px; font-family: var(--f-display); font-size: 19px; color: var(--tan); }
+.rolehead details .paper { margin: 4px 10px 14px; font-size: 18px; }
+.yours { font-weight: 700; }
+
+@keyframes arrive { from { transform: translateY(10px); opacity: .4; } to { transform: none; opacity: 1; } }
+.fresh { animation: arrive .45s ease-out; }
+@media (prefers-reduced-motion: reduce) { .fresh { animation: none; } }
+</style>
+</head>
+<body>
+<svg width="0" height="0" aria-hidden="true" style="position:absolute"><filter id="rough" x="-5%" y="-5%" width="110%" height="110%"><feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="3" seed="7"/><feDisplacementMap in="SourceGraphic" scale="16"/></filter></svg>
+<div class="wrap">
+
+  <div class="view" id="landing">
+    <section class="hero">
+      <p class="eyebrow">Caso Daniel Black · Rally de investigación</p>
+      <h1>El último <span class="tape">secreto</span></h1>
+      <p class="lede">Daniel Black dejó diez señales antes de desaparecer. Cuatro investigadores, cada uno con una estación a su cargo, deben seguirlas juntos hasta la quinta. Después, el caso queda en sus manos.</p>
+      <ul class="facts"><li>4 investigadores</li><li>10 estaciones</li><li>45 a 60 minutos</li></ul>
+    </section>
+
+    <section class="section" aria-labelledby="t-carta">
+      <h2 id="t-carta">Mensaje de Daniel</h2>
+      <div class="paper letter" id="letter">
+        <p>Mi nombre es Daniel Black. Durante años me he movido entre negocios clandestinos y personas que creen que todo se puede comprar. Muchos me conocen por mi relación con el narcotráfico, pero ahora estoy siguiendo un asunto que puede cambiarlo todo.</p>
+        <p>He descubierto que alguien de mi círculo me está traicionando y que quiere apoderarse de algo que he mantenido oculto durante mucho tiempo: un tesoro y la información que lo rodea.</p>
+        <p>Si están leyendo este mensaje, significa que no pude terminar mi investigación. Dejé señales en distintos lugares. No confíen en la primera versión que escuchen, revisen cada detalle y unan las evidencias.</p>
+        <p>Descubran quién me traicionó, dónde ocurrió todo y encuentren lo que escondí. La última respuesta está más cerca de lo que creen.</p>
+        <p class="from">D. B.</p>
+      </div>
+      <details class="rules">
+        <summary>Reglas del recorrido</summary>
+        <ol>
+          <li>Manténganse dentro de las zonas autorizadas.</li>
+          <li>No abran sobres que todavía no correspondan a su estación.</li>
+          <li>Cada quien responde la estación de su rol; la quinta se responde entre todos.</li>
+          <li>Escaneen un QR solo cuando una pista lo indique.</li>
+          <li>Si se atascan, pidan las ayudas de la estación. Hay tres por sobre.</li>
+          <li>No muevan objetos ajenos al juego ni entren a espacios no autorizados.</li>
+        </ol>
+      </details>
+    </section>
+
+    <section class="section" aria-labelledby="t-rol">
+      <h2 id="t-rol">Escoge tu rol</h2>
+      <p class="rule">Un solo rol por persona</p>
+      <p>Cada rol resuelve una estación distinta y la quinta la resuelven entre todos. Pónganse de acuerdo antes de elegir: en este teléfono no podrás cambiarlo.</p>
+      <div class="rolecards" id="rolecards"></div>
+    </section>
+  </div>
+
+  <div class="view" id="play" hidden>
+    <section class="rolehead">
+      <p class="eyebrow" id="role-eyebrow"></p>
+      <h1 id="role-name"></h1>
+      <p class="lede" id="role-mission"></p>
+      <details><summary>Releer el mensaje de Daniel</summary><div class="paper" id="letter-copy"></div></details>
+    </section>
+    <section class="section" aria-labelledby="t-ruta">
+      <h2 id="t-ruta">Tu recorrido</h2>
+      <ol class="track" id="track" aria-label="Avance por estación"></ol>
+      <p class="status" id="status"></p>
+      <div id="stations"></div>
+    </section>
+  </div>
+
+  <footer>
+    <p>El rol y el avance se guardan en este teléfono.</p>
+    <div id="reset"></div>
+  </footer>
+</div>
+
+<script>
+(function () {
+  var DATA = JSON.parse(new TextDecoder().decode(Uint8Array.from(atob("__DATA__"), function (c) { return c.charCodeAt(0); })));
+  var KEY = "ultimo-secreto-v2", S = [], N = 0, R = null;
+  var state, pick = [], fresh = false, asking = null;
+
+  function el(tag, cls, text) {
+    var e = document.createElement(tag);
+    if (cls) e.className = cls;
+    if (text != null) e.textContent = text;
+    for (var i = 3; i < arguments.length; i++) if (arguments[i]) e.appendChild(arguments[i]);
+    return e;
+  }
+  function norm(s) { return String(s).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/[^a-z0-9]/g, ""); }
+  function save() { try { localStorage.setItem(KEY, JSON.stringify(state)); } catch (e) {} }
+  function clean(s) {
+    s = s && typeof s === "object" ? s : {};
+    var role = DATA.roles[s.role] ? s.role : null;
+    if (!role) return { role: null, solved: 0, open: true, hints: {} };
+    var n = DATA.stages.length, solved = Math.max(0, Math.min(n, s.solved | 0));
+    return { role: role, solved: solved, open: solved === 0 ? true : !!s.open, hints: s.hints && typeof s.hints === "object" ? s.hints : {} };
+  }
+  function name(st) { return st.tag === "Inicio" ? "Inicio" : "Estación " + st.tag; }
+
+  /* Portada: elección de rol */
+  function renderRoles() {
+    var box = document.getElementById("rolecards"); box.textContent = "";
+    DATA.order.forEach(function (id) {
+      var r = DATA.roles[id];
+      if (asking === id) {
+        var c = el("div", "rolecard asking");
+        c.appendChild(el("span", "nm", r.name));
+        c.appendChild(el("span", null, "¿Entrar como " + r.name + "? Después no podrás cambiar de rol en este teléfono."));
+        var yes = el("button", "btn", "Confirmar"); yes.type = "button";
+        yes.onclick = function () { state = clean({ role: id }); asking = null; pick = []; save(); show(); window.scrollTo(0, 0); };
+        var no = el("button", "btn ghost", "Cancelar"); no.type = "button";
+        no.onclick = function () { asking = null; renderRoles(); };
+        c.appendChild(el("div", "row", null, yes, no));
+        box.appendChild(c);
+      } else {
+        var b = el("button", "rolecard"); b.type = "button";
+        b.appendChild(el("span", "num", "Rol " + r.num));
+        b.appendChild(el("span", "nm", r.name));
+        b.appendChild(el("span", null, r.desc));
+        b.appendChild(el("span", "skill", r.skill));
+        b.onclick = function () { asking = id; renderRoles(); };
+        box.appendChild(b);
+      }
+    });
+  }
+
+  function show() {
+    var playing = !!state.role;
+    document.getElementById("landing").hidden = playing;
+    document.getElementById("play").hidden = !playing;
+    try { if (location.hash.slice(1) !== (state.role || "")) location.hash = state.role || ""; } catch (e) {}
+    if (!playing) { renderRoles(); renderReset(false); return; }
+    R = DATA.roles[state.role]; S = DATA.stages; N = S.length;
+    document.getElementById("role-eyebrow").textContent = "Tu rol · " + R.num + " de 4";
+    document.getElementById("role-name").textContent = R.name;
+    document.getElementById("role-mission").textContent = R.mission;
+    document.getElementById("letter-copy").innerHTML = document.getElementById("letter").innerHTML;
+    render();
+  }
+
+  function reveal(st) {
+    var box = el("div", "body");
+    box.appendChild(el("p", "label", st.reveal.label));
+    box.appendChild(el("div", "paper", st.reveal.text));
+    if (st.reveal.next) box.appendChild(el("p", "next", st.reveal.next));
+    return box;
+  }
+
+  function hints(st, i) {
+    var box = el("div", "hints"), used = state.hints[i] | 0;
+    for (var k = 0; k < used; k++) {
+      var h = el("p", "hint");
+      h.appendChild(el("b", null, "Ayuda " + (k + 1)));
+      h.appendChild(document.createTextNode(st.hints[k]));
+      box.appendChild(h);
+    }
+    if (used < st.hints.length) {
+      var b = el("button", "btn ghost", "Pedir ayuda " + (used + 1) + " de " + st.hints.length);
+      b.type = "button";
+      b.onclick = function () { state.hints[i] = used + 1; save(); render(); };
+      box.appendChild(b);
+    }
+    return box;
+  }
+
+  function solve() {
+    state.solved++; state.open = false; pick = []; fresh = true; save(); render();
+    var t = document.getElementById(state.solved >= N ? "finale" : "last-solved");
+    if (t) t.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
+
+  function control(st, i, fb) {
+    var box = el("div", "section");
+    function wrong(msg) { fb.textContent = msg; }
+
+    if (st.type === "text" || st.type === "code") {
+      var form = el("form", "answer"), inp = el("input", st.type === "code" ? "code" : null);
+      inp.id = "answer-" + i; inp.autocomplete = "off"; inp.setAttribute("aria-label", st.question);
+      if (st.type === "code") { inp.inputMode = "numeric"; inp.maxLength = 9; inp.placeholder = "00"; } else { inp.placeholder = "Tu respuesta"; }
+      var go = el("button", "btn", "Comprobar"); go.type = "submit";
+      form.appendChild(inp); form.appendChild(go);
+      form.onsubmit = function (e) {
+        e.preventDefault();
+        var v = norm(inp.value);
+        if (!v) return wrong("Escribe una respuesta antes de comprobar.");
+        if (st.accept.indexOf(v) >= 0) return solve();
+        wrong("Esa no es la respuesta. Lee la pista otra vez o pide una ayuda.");
+        inp.select();
+      };
+      box.appendChild(form);
+    }
+
+    if (st.type === "order" || st.type === "choice") {
+      var list = el("div", "pick"), single = st.type === "choice";
+      st.items.forEach(function (it, idx) {
+        var b = el("button"); b.type = "button";
+        var pos = pick.indexOf(idx);
+        b.setAttribute("aria-pressed", pos >= 0 ? "true" : "false");
+        b.appendChild(el("span", "n", pos >= 0 ? (single ? "✓" : String(pos + 1)) : ""));
+        var txt = el("span");
+        if (it.who) txt.appendChild(el("span", "who", it.who));
+        if (it.text) txt.appendChild(el("span", "say", it.text));
+        b.appendChild(txt);
+        b.onclick = function () {
+          if (single) pick = [idx];
+          else if (pos >= 0) pick.splice(pos, 1);
+          else pick.push(idx);
+          render();
+        };
+        list.appendChild(b);
+      });
+      box.appendChild(list);
+      var row = el("div", "row"), ok = el("button", "btn", "Comprobar"); ok.type = "button";
+      ok.disabled = single ? pick.length !== 1 : pick.length !== st.items.length;
+      ok.onclick = function () {
+        if (pick.join() === st.correct.join()) return solve();
+        pick = []; render();
+        document.getElementById("feedback").textContent = st.wrong;
+      };
+      row.appendChild(ok);
+      if (!single && pick.length) {
+        var clr = el("button", "btn ghost", "Borrar orden"); clr.type = "button";
+        clr.onclick = function () { pick = []; render(); };
+        row.appendChild(clr);
+      }
+      box.appendChild(row);
+    }
+    return box;
+  }
+
+  function station(st, i) {
+    var card = el("article", "station" + (fresh ? " fresh" : ""));
+    var head = el("header");
+    head.appendChild(el("p", "label", name(st) + (st.owner === "todos" ? " · Para todo el equipo" : " · Tu turno, " + R.name.toLowerCase())));
+    head.appendChild(el("h3", null, st.title));
+    head.appendChild(el("p", "place", st.place));
+    card.appendChild(head);
+    st.intro.forEach(function (p) { card.appendChild(el("p", null, p)); });
+    if (st.clue) card.appendChild(el("div", "paper", st.clue));
+    if (st.tiles) {
+      var t = el("div", "tiles"); t.setAttribute("aria-label", "Letras: " + st.tiles.join(", "));
+      st.tiles.forEach(function (c) { t.appendChild(el("span", null, c)); });
+      card.appendChild(t);
+    }
+    card.appendChild(el("p", "question", st.question));
+    if (st.pattern) {
+      var bl = el("div", "blanks"); bl.setAttribute("aria-label", "Letras de la respuesta: " + st.pattern.replace(/_/g, "espacio "));
+      st.pattern.split("").forEach(function (c) { bl.appendChild(el("span", c === " " ? "gap" : null, c === "_" || c === " " ? "" : c)); });
+      card.appendChild(bl);
+    }
+    var fb = el("p", "feedback"); fb.id = "feedback"; fb.setAttribute("role", "status");
+    card.appendChild(control(st, i, fb));
+    card.appendChild(fb);
+    card.appendChild(hints(st, i));
+    return card;
+  }
+
+  function waiting(st) {
+    var o = DATA.roles[st.owner], card = el("article", "station" + (fresh ? " fresh" : ""));
+    var head = el("header");
+    head.appendChild(el("p", "label", name(st)));
+    head.appendChild(el("h3", null, "Esta estación es para el " + o.name));
+    head.appendChild(el("p", "place", st.place));
+    card.appendChild(head);
+    card.appendChild(el("p", null, "Acompaña a tu equipo y ayuda a pensar, pero la respuesta la escribe el " + o.name.toLowerCase() + " en su teléfono. Tu turno llega en otra estación."));
+    var b = el("button", "btn", "Ya la resolvió"); b.type = "button";
+    b.onclick = solve;
+    card.appendChild(el("div", "row", null, b));
+    card.appendChild(el("p", "place", "Toca el botón solo cuando el " + o.name.toLowerCase() + " tenga la respuesta correcta."));
+    return card;
+  }
+
+  function finale() {
+    var F = DATA.finale, box = el("section", "finale" + (fresh ? " fresh" : "")); box.id = "finale";
+    box.appendChild(el("h2", null, F.title));
+    box.appendChild(el("p", null, F.intro));
+    box.appendChild(el("p", null, F.lead));
+    var ul = el("ul"); F.evidence.forEach(function (e) { ul.appendChild(el("li", null, e)); });
+    box.appendChild(ul);
+    box.appendChild(el("p", "clue-label", F.clueLabel));
+    box.appendChild(el("div", "paper", F.clue));
+    box.appendChild(el("p", "yours", R.task));
+    box.appendChild(el("p", null, F.closing));
+    return box;
+  }
+
+  function render() {
+    var track = document.getElementById("track"), list = document.getElementById("stations"), done = state.solved;
+    track.textContent = ""; list.textContent = "";
+    S.forEach(function (st, i) {
+      var li = el("li", i < done ? "done" : i === done ? "now" : null, st.tag === "Inicio" ? "I" : st.tag);
+      li.setAttribute("aria-label", name(st) + (i < done ? ", resuelta" : i === done ? ", en curso" : ", sellada"));
+      track.appendChild(li);
+    });
+    var used = Object.keys(state.hints).reduce(function (a, k) { return a + (state.hints[k] | 0); }, 0);
+    document.getElementById("status").textContent =
+      (done >= N ? "Sobres completos. " : done + " de " + N + " sobres resueltos. ") + "Ayudas usadas: " + used + ".";
+
+    for (var i = 0; i < done; i++) {
+      var st = S[i], d = el("details", "solved"), sum = el("summary");
+      sum.appendChild(el("b", null, name(st)));
+      sum.appendChild(el("span", null, st.title));
+      d.appendChild(sum); d.appendChild(reveal(st));
+      if (i === done - 1 && done < N) { d.open = true; d.id = "last-solved"; if (fresh) d.classList.add("fresh"); }
+      list.appendChild(d);
+    }
+    if (done >= N) list.appendChild(finale());
+    else if (!state.open) {
+      var g = el("div", "gate");
+      g.appendChild(el("p", null, "Vayan juntos. Cuando lleguen al lugar, abre el siguiente sobre."));
+      var b = el("button", "btn", "Abrir " + name(S[done]).toLowerCase()); b.type = "button";
+      b.onclick = function () { state.open = true; fresh = true; save(); render(); };
+      g.appendChild(b); list.appendChild(g);
+    } else list.appendChild(S[done].owner === "todos" || S[done].owner === state.role ? station(S[done], done) : waiting(S[done]));
+    if (done < N) {
+      var left = N - done - (state.open ? 1 : 0);
+      if (left > 0) list.appendChild(el("p", "sealed", left === 1 ? "Queda 1 sobre sellado." : "Quedan " + left + " sobres sellados."));
+    }
+    fresh = false;
+    renderReset(false);
+  }
+
+  function renderReset(ask) {
+    var box = document.getElementById("reset"); box.textContent = ""; box.className = "row";
+    if (!state.role) return;
+    if (!ask) {
+      var b = el("button", "btn ghost", "Reiniciar y volver a la portada"); b.type = "button";
+      b.onclick = function () { renderReset(true); };
+      box.appendChild(b);
+    } else {
+      box.appendChild(el("span", null, "Se borrarán tu rol y tu avance."));
+      var y = el("button", "btn ghost", "Sí, reiniciar"); y.type = "button";
+      y.onclick = function () { state = clean({}); pick = []; asking = null; save(); show(); window.scrollTo(0, 0); };
+      var n = el("button", "btn ghost", "Cancelar"); n.type = "button";
+      n.onclick = function () { renderReset(false); };
+      box.appendChild(y); box.appendChild(n);
+    }
+  }
+
+  function start(snap) {
+    var stored = null;
+    try { stored = JSON.parse(localStorage.getItem(KEY)); } catch (e) {}
+    state = clean(snap && snap.role ? snap : stored);
+    show();
+  }
+  var hot = window.claude && window.claude.hot;
+  if (hot && hot.snapshot) hot.snapshot(function () { return state; });
+  if (hot && hot.ready) hot.ready(start); else start((hot && hot.data) || {});
+})();
+</script>
+</body>
+</html>

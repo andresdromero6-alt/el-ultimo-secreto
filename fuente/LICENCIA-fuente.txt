@@ -1,0 +1,7 @@
+ Font by Super Princess Celena (Celenne Prizzinne)
+ 
+ This font is under a Creative Commons Zero License (Public Domain). Basically this means you can use this for anything you want (commercial, personal, resell, redistribute, make a postcard for your mother, whatever). More information can be found here: https://creativecommons.org/publicdomain/zero/1.0/
+ 
+ NOTES: 
+ - This font has no kerning by default. It is recommended to adjust it to about -7 points.
+ - It features automatic alternates.
