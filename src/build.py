@@ -7,8 +7,8 @@ TEST = "“Vi a Daniel entrar a las 7:00”.\n“Escuché una discusión a las 7
 common = [
  dict(tag="Inicio", title="La primera señal", place="Salón de clase",
       intro=["Ya tienes tu tarjeta de rol, tu pulsera y el mensaje de Daniel. La primera señal le llega a cada investigador de una forma distinta. Esta es la tuya."],
-      reveal=dict(label="Primera parada", text="Una banca del Bloque C. Una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan al Bloque C y encuentren la banca marcada.")),
- dict(tag="1", title="La primera evidencia", place="Banca del Bloque C",
+      reveal=dict(label="Primera parada", text="Una banca. Detrás del Bloque C hay 2: una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan a las 2 bancas que están detrás del Bloque C y encuentren la marcada.")),
+ dict(tag="1", title="La primera evidencia", place="2 bancas detrás del Bloque C",
       intro=["En el sobre de la banca hay una fotografía de Daniel y una nota: el tiempo es clave para reconstruir los hechos."],
       reveal=dict(label="Mensaje del QR 1", text="Busquen un reloj o la imagen de un reloj: a su lado está el QR 1. La siguiente señal los espera cerca de un armario.", next="Vayan a la estación 2: Bloque A.")),
  dict(tag="2", title="El mensaje oculto", place="Bloque A",
@@ -39,7 +39,7 @@ roles = dict(
   ch=[
    dict(type="text", clue="Tengo respaldo, pero no soy una persona; tengo asiento, pero no soy un salón. En mí descansan quienes recorren los pasillos. Búscame en el Bloque C y allí comenzará tu investigación.",
         question="¿Qué debes buscar en el Bloque C?", pattern="B_N__", accept=BANCA,
-        hints=["Piensa en un lugar donde los estudiantes se sientan.", "Está en los pasillos del Bloque C y tiene respaldo.", "La respuesta es BANCA."]),
+        hints=["Piensa en un lugar donde los estudiantes se sientan.", "Hay 2 detrás del Bloque C y tienen respaldo.", "La respuesta es BANCA."]),
    dict(type="text", clue="No tengo boca, pero puedo hablar. No tengo piernas, pero siempre avanzo. Todos me miran, pero nadie puede detenerme. ¿Qué soy?",
         question="¿Qué es?", pattern="R_L__", accept=RELOJ,
         hints=["La respuesta mide el paso del tiempo.", "Suele estar en la pared o en la muñeca.", "La respuesta es RELOJ."]),
