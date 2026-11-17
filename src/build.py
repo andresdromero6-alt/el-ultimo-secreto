@@ -7,20 +7,20 @@ TEST = "“Vi a Daniel entrar a las 7:00”.\n“Escuché una discusión a las 7
 common = [
  dict(tag="Inicio", title="La primera señal", place="Salón de clase",
       intro=["Ya tienes tu tarjeta de rol, tu pulsera y el mensaje de Daniel. La primera señal le llega a cada investigador de una forma distinta. Esta es la tuya."],
-      reveal=dict(label="Primera parada", text="Una banca. Detrás del Bloque C hay 2: una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan a las 2 bancas que están detrás del Bloque C y encuentren la marcada.")),
+      reveal=dict(label="Primera parada", text="Una banca. Detrás del Bloque C hay 2: una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan a las 2 bancas que están detrás del Bloque C y busquen debajo de la marcada.")),
  dict(tag="1", title="La primera evidencia", place="2 bancas detrás del Bloque C",
       intro=["En el sobre de la banca hay una fotografía de Daniel y una nota: el tiempo es clave para reconstruir los hechos."],
       reveal=dict(label="Mensaje del QR 1", text="Busquen el reloj: está debajo de los lockers. Detrás tiene el QR 1, que dice el número del locker, y la llave de ese locker pegada al papel.", next="Vayan a la estación 2: los lockers que están a un lado de la Biblioteca.")),
  dict(tag="2", title="El mensaje oculto", place="Lockers a un lado de la Biblioteca",
       intro=["Daniel escondió el mismo lugar de cuatro maneras, una para cada investigador."],
-      reveal=dict(label="Nota dentro del locker", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: el kiosco que está al frente del Bloque D.")),
+      reveal=dict(label="Nota dentro del locker", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: el kiosco que está al frente del Bloque D. Busquen debajo de la mesa marcada.")),
  dict(tag="3", title="El testigo silencioso", place="Kiosco al frente del Bloque D",
       intro=["Un testigo dejó tres declaraciones sobre esa noche. Cada investigador debe sacarles algo distinto."],
-      reveal=dict(label="Mensaje del QR 2", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4: Bloque B.")),
- dict(tag="4", title="El objeto desaparecido", place="Bloque B",
+      reveal=dict(label="Mensaje del QR 2", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4: Bloque B. Busquen detrás del cartel de ruta de evacuación.")),
+ dict(tag="4", title="El objeto desaparecido", place="Bloque B, cartel de ruta de evacuación",
       intro=["Sobre la mesa hay cinco objetos casi iguales. Antes de tocarlos, resuelve tu reto."],
-      reveal=dict(label="La llave marcada", text="Es una llave. De las cinco que hay en la mesa, solo una tiene una marca distintiva. Encuéntrenla y lean lo que lleva escrito: “No todas las puertas conducen a una salida. Algunas conducen directamente a la verdad”.", next="La etiqueta de la llave marcada señala la estación 5: Bloque H.")),
- dict(tag="5", title="El código del sospechoso", place="Bloque H",
+      reveal=dict(label="La llave marcada", text="Es una llave. De las cinco tarjetas de llaves del sobre, solo una tiene una marca distintiva. Encuéntrenla y lean lo que lleva escrito: “No todas las puertas conducen a una salida. Algunas conducen directamente a la verdad”.", next="La llave marcada señala la estación 5: la entrada del Bloque H. Busquen debajo de la silla marcada.")),
+ dict(tag="5", title="El código del sospechoso", place="Entrada del Bloque H",
       intro=["Cuatro sospechosos dejaron su declaración. Compárala con lo que tu equipo ya sabe."],
       reveal=dict(label="Mensaje del QR 3", text="Guarden la coartada de Martín, la de la biblioteca, como una afirmación por comprobar. Todavía no han revisado toda la información: una evidencia anterior puede tener otro significado.", next="")),
 ]
@@ -142,7 +142,7 @@ stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
 stages[2]["intro"] = ["Junto a los lockers hay un sobre con ocho letras desordenadas."]
 stages[2]["pattern"] = "E_ L_C__R"
 stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
-stages[4]["intro"] = ["Sobre la mesa hay cinco objetos casi iguales. Antes de tocarlos, resuelve esto."]
+stages[4]["intro"] = ["En el sobre hay cinco tarjetas casi iguales. Antes de mirarlas, resuelve esto."]
 stages[5]["intro"] = ["Reúnan las cuatro declaraciones que encontraron en los sobres de las estaciones 1 a 4. Discútanlas entre los cuatro y respondan lo mismo en cada teléfono."]
 for k in (1, 2, 3, 4):
     stages[k]["reveal"] = dict(stages[k]["reveal"])
@@ -168,7 +168,7 @@ finale = dict(
   "La coartada de Martín sigue sin comprobarse.",
  ],
  clueLabel="La última pista",
- clue="Lo que sigue está hecho pedazos sobre una mesa del kiosco que está al lado del Bloque C. Únanlo y lean lo que dice por los dos lados. Y no olviden esto: una evidencia que ya vieron puede tener otro significado.",
+ clue="Lo que sigue está hecho pedazos en un sobre, debajo de una mesa del kiosco que está al lado del Bloque C. Únanlo y lean lo que dice por los dos lados. Y no olviden esto: una evidencia que ya vieron puede tener otro significado.",
  closing="Observen, comparen y confíen en su equipo. Suerte, investigadores.",
 )
 
