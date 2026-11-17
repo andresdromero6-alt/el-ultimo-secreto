@@ -7,20 +7,20 @@ TEST = "“Vi a Daniel entrar a las 7:00”.\n“Escuché una discusión a las 7
 common = [
  dict(tag="Inicio", title="La primera señal", place="Salón de clase",
       intro=["Ya tienes tu tarjeta de rol, tu pulsera y el mensaje de Daniel. La primera señal le llega a cada investigador de una forma distinta. Esta es la tuya."],
-      reveal=dict(label="Primera parada", text="Una banca del bloque C. Una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan al bloque C y encuentren la banca marcada.")),
- dict(tag="1", title="La primera evidencia", place="Banca del bloque C",
+      reveal=dict(label="Primera parada", text="Una banca del Bloque C. Una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan al Bloque C y encuentren la banca marcada.")),
+ dict(tag="1", title="La primera evidencia", place="Banca del Bloque C",
       intro=["En el sobre de la banca hay una fotografía de Daniel y una nota: el tiempo es clave para reconstruir los hechos."],
-      reveal=dict(label="Mensaje del QR 1", text="Busquen un reloj o la imagen de un reloj: a su lado está el QR 1. La siguiente señal los espera cerca de un armario.", next="Vayan a la estación 2 y busquen cerca del escritorio o la mesa.")),
- dict(tag="2", title="El mensaje oculto", place="Cerca de un escritorio o una mesa",
+      reveal=dict(label="Mensaje del QR 1", text="Busquen un reloj o la imagen de un reloj: a su lado está el QR 1. La siguiente señal los espera cerca de un armario.", next="Vayan a la estación 2: el kiosco que está al lado del Bloque C.")),
+ dict(tag="2", title="El mensaje oculto", place="Kiosco al lado del Bloque C",
       intro=["Daniel escondió el mismo lugar de cuatro maneras, una para cada investigador."],
-      reveal=dict(label="Nota dentro del armario", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3.")),
- dict(tag="3", title="El testigo silencioso", place="Junto a una silla o en la habitación preparada",
+      reveal=dict(label="Nota dentro del armario", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: Bloque D.")),
+ dict(tag="3", title="El testigo silencioso", place="Bloque D",
       intro=["Un testigo dejó tres declaraciones sobre esa noche. Cada investigador debe sacarles algo distinto."],
-      reveal=dict(label="Mensaje del QR 2", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4, el espacio con varios objetos.")),
- dict(tag="4", title="El objeto desaparecido", place="Espacio con varios objetos",
+      reveal=dict(label="Mensaje del QR 2", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4: el kiosco que está al frente del Bloque D.")),
+ dict(tag="4", title="El objeto desaparecido", place="Kiosco al frente del Bloque D",
       intro=["Sobre la mesa hay cinco objetos casi iguales. Antes de tocarlos, resuelve tu reto."],
-      reveal=dict(label="La llave marcada", text="Es una llave. De las cinco que hay en la mesa, solo una tiene una marca distintiva. Encuéntrenla y lean lo que lleva escrito: “No todas las puertas conducen a una salida. Algunas conducen directamente a la verdad”.", next="La etiqueta de la llave marcada señala la estación 5.")),
- dict(tag="5", title="El código del sospechoso", place="Mesa de investigación",
+      reveal=dict(label="La llave marcada", text="Es una llave. De las cinco que hay en la mesa, solo una tiene una marca distintiva. Encuéntrenla y lean lo que lleva escrito: “No todas las puertas conducen a una salida. Algunas conducen directamente a la verdad”.", next="La etiqueta de la llave marcada señala la estación 5: Bloque H.")),
+ dict(tag="5", title="El código del sospechoso", place="Bloque H",
       intro=["Cuatro sospechosos dejaron su declaración. Compárala con lo que tu equipo ya sabe."],
       reveal=dict(label="Mensaje del QR 3", text="Guarden la coartada de Martín, la de la biblioteca, como una afirmación por comprobar. Todavía no han revisado toda la información: una evidencia anterior puede tener otro significado.", next="")),
 ]
@@ -37,9 +37,9 @@ roles = dict(
   mission="Tu trabajo es dudar. En cada estación recibirás lo que Daniel dejó para quien sabe comparar versiones y encontrar lo que no encaja.",
   task="Tu parte, detective: compara cada declaración nueva con la cronología que ya tienes.",
   ch=[
-   dict(type="text", clue="Tengo respaldo, pero no soy una persona; tengo asiento, pero no soy un salón. En mí descansan quienes recorren los pasillos. Búscame en el bloque C y allí comenzará tu investigación.",
-        question="¿Qué debes buscar en el bloque C?", pattern="B_N__", accept=BANCA,
-        hints=["Piensa en un lugar donde los estudiantes se sientan.", "Está en los pasillos del bloque C y tiene respaldo.", "La respuesta es BANCA."]),
+   dict(type="text", clue="Tengo respaldo, pero no soy una persona; tengo asiento, pero no soy un salón. En mí descansan quienes recorren los pasillos. Búscame en el Bloque C y allí comenzará tu investigación.",
+        question="¿Qué debes buscar en el Bloque C?", pattern="B_N__", accept=BANCA,
+        hints=["Piensa en un lugar donde los estudiantes se sientan.", "Está en los pasillos del Bloque C y tiene respaldo.", "La respuesta es BANCA."]),
    dict(type="text", clue="No tengo boca, pero puedo hablar. No tengo piernas, pero siempre avanzo. Todos me miran, pero nadie puede detenerme. ¿Qué soy?",
         question="¿Qué es?", pattern="R_L__", accept=RELOJ,
         hints=["La respuesta mide el paso del tiempo.", "Suele estar en la pared o en la muñeca.", "La respuesta es RELOJ."]),
@@ -62,7 +62,7 @@ roles = dict(
   mission="Daniel escondió parte de sus mensajes en clave. En cada estación te toca descifrar lo que los demás no pueden leer.",
   task="Tu parte, criptógrafo: cualquier número, letra suelta o QR que aparezca es asunto tuyo.",
   ch=[
-   dict(type="text", clue="Daniel escribía con números: A = 1, B = 2, C = 3…\n\n2 · 1 · 14 · 3 · 1\n\nEso te espera en el bloque C.",
+   dict(type="text", clue="Daniel escribía con números: A = 1, B = 2, C = 3…\n\n2 · 1 · 14 · 3 · 1\n\nEso te espera en el Bloque C.",
         question="¿Qué palabra forman los números?", pattern="B____", accept=BANCA,
         hints=["Cambia cada número por la letra que ocupa ese lugar en el abecedario.", "2 es B, 1 es A y 14 es N.", "La respuesta es BANCA."]),
    dict(type="text", clue="Cada letra de este mensaje está un paso adelante de la verdadera:\n\nS F M P K",
@@ -85,7 +85,7 @@ roles = dict(
   mission="Tú eres los ojos del equipo. En cada estación tendrás que fijarte en lo que está escrito, en lo que falta y en los objetos que nadie mira.",
   task="Tu parte, investigador: revisa los objetos que el equipo ya vio. Alguno guarda más de lo que parece.",
   ch=[
-   dict(type="text", clue="Tengo cuatro patas y no camino. Tengo espalda y nunca me canso. Espero en un pasillo del bloque C a quien quiera detenerse un momento.",
+   dict(type="text", clue="Tengo cuatro patas y no camino. Tengo espalda y nunca me canso. Espero en un pasillo del Bloque C a quien quiera detenerse un momento.",
         question="¿Qué objeto debes encontrar?", pattern="B_N__", accept=BANCA,
         hints=["Es un mueble de pasillo.", "Sirve para sentarse y caben varias personas.", "La respuesta es BANCA."]),
    dict(type="text", clue="La nota dice que el tiempo es clave. Busca a tu alrededor el objeto que lo vigila: tiene cara y no tiene ojos, tiene manecillas y no tiene brazos.",
@@ -138,7 +138,7 @@ stages = []
 for k, c in enumerate(common):
     s = dict(c); s.update(roles[SRC[k]]["ch"][k]); s["owner"] = OWN[k]; stages.append(s)
 stages[0]["intro"] = ["Ya tienen sus tarjetas de rol, sus pulseras y el mensaje de Daniel. La primera señal es para todos."]
-stages[0]["question"] = "¿Qué deben buscar en el bloque C?"
+stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
 stages[2]["intro"] = ["Sobre la mesa hay nueve letras desordenadas."]
 stages[2]["pattern"] = "E_ A_M__I_"
 stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
