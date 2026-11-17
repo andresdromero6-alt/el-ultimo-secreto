@@ -10,10 +10,10 @@ common = [
       reveal=dict(label="Primera parada", text="Una banca. Detrás del Bloque C hay 2: una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan a las 2 bancas que están detrás del Bloque C y encuentren la marcada.")),
  dict(tag="1", title="La primera evidencia", place="2 bancas detrás del Bloque C",
       intro=["En el sobre de la banca hay una fotografía de Daniel y una nota: el tiempo es clave para reconstruir los hechos."],
-      reveal=dict(label="Mensaje del QR 1", text="Busquen un reloj o la imagen de un reloj: a su lado está el QR 1. La siguiente señal los espera cerca de un armario.", next="Vayan a la estación 2: Bloque A.")),
+      reveal=dict(label="Mensaje del QR 1", text="Busquen un reloj o la imagen de un reloj: a su lado está el QR 1. La siguiente señal los espera cerca del locker #.", next="Vayan a la estación 2: Bloque A.")),
  dict(tag="2", title="El mensaje oculto", place="Bloque A",
       intro=["Daniel escondió el mismo lugar de cuatro maneras, una para cada investigador."],
-      reveal=dict(label="Nota dentro del armario", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: el kiosco que está al frente del Bloque D.")),
+      reveal=dict(label="Nota dentro del locker #", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: el kiosco que está al frente del Bloque D.")),
  dict(tag="3", title="El testigo silencioso", place="Kiosco al frente del Bloque D",
       intro=["Un testigo dejó tres declaraciones sobre esa noche. Cada investigador debe sacarles algo distinto."],
       reveal=dict(label="Mensaje del QR 2", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4: Bloque B.")),
@@ -27,7 +27,7 @@ common = [
 
 BANCA = ["banca", "bancas", "banco", "bancos", "unabanca", "labanca"]
 RELOJ = ["reloj", "relojes", "elreloj", "unreloj"]
-ARMARIO = ["elarmario", "armario", "unarmario"]
+ARMARIO = ["ellocker", "locker", "unlocker", "loker", "elloker"]
 LLAVE = ["llave", "llaves", "lallave", "unallave"]
 MARTIN = ["martin"]
 SUS = [dict(who="Samuel"), dict(who="Martín"), dict(who="Laura"), dict(who="Andrés")]
@@ -68,9 +68,9 @@ roles = dict(
    dict(type="text", clue="Cada letra de este mensaje está un paso adelante de la verdadera:\n\nS F M P K",
         question="¿Qué palabra escondió Daniel?", pattern="R____", accept=RELOJ,
         hints=["Retrocede cada letra una posición en el abecedario.", "S se convierte en R y F en E.", "La respuesta es RELOJ."]),
-   dict(type="text", clue="Nueve letras revueltas. Forman dos palabras.", tiles=list("RAOEMLIRA"),
-        question="¿Qué dicen las letras?", pattern="E_ A______", accept=ARMARIO,
-        hints=["Forman el nombre de un mueble.", "La primera palabra es EL y la segunda termina en ARIO.", "La respuesta es EL ARMARIO."]),
+   dict(type="text", clue="Ocho letras revueltas. Forman dos palabras.", tiles=list("REKLOCLE"),
+        question="¿Qué dicen las letras?", pattern="E_ L____R", accept=ARMARIO,
+        hints=["Forman el nombre de un lugar donde se guardan cosas bajo llave.", "La primera palabra es EL y la segunda empieza con L y termina en R.", "La respuesta es EL LOCKER."]),
    dict(type="text", clue="El testigo escribió una de sus declaraciones al revés para que nadie más la leyera:\n\n" + "A las 8:00, alguien salió apresuradamente."[::-1],
         question="¿A qué hora salió alguien apresuradamente?", accept=["800", "8", "ocho", "lasocho", "alasocho", "alas8", "alas800", "las8", "las800", "8pm", "8am"],
         hints=["Lee el mensaje de derecha a izquierda.", "La hora está casi al final del texto que ves.", "Salió a las 8:00."]),
@@ -139,8 +139,8 @@ for k, c in enumerate(common):
     s = dict(c); s.update(roles[SRC[k]]["ch"][k]); s["owner"] = OWN[k]; stages.append(s)
 stages[0]["intro"] = ["Ya tienen sus tarjetas de rol, sus pulseras y el mensaje de Daniel. La primera señal es para todos."]
 stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
-stages[2]["intro"] = ["Sobre la mesa hay nueve letras desordenadas."]
-stages[2]["pattern"] = "E_ A_M__I_"
+stages[2]["intro"] = ["Sobre la mesa hay ocho letras desordenadas."]
+stages[2]["pattern"] = "E_ L_C__R"
 stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
 stages[4]["intro"] = ["Sobre la mesa hay cinco objetos casi iguales. Antes de tocarlos, resuelve esto."]
 stages[5]["intro"] = ["Cuatro sospechosos dejaron su declaración. Discútanlo entre los cuatro y respondan lo mismo en cada teléfono."]
