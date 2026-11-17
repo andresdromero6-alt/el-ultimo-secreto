@@ -139,7 +139,7 @@ for k, c in enumerate(common):
     s = dict(c); s.update(roles[SRC[k]]["ch"][k]); s["owner"] = OWN[k]; stages.append(s)
 stages[0]["intro"] = ["Ya tienen sus tarjetas de rol, sus pulseras y el mensaje de Daniel. La primera señal es para todos."]
 stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
-stages[2]["intro"] = ["A un lado de la Biblioteca están los lockers. Junto a ellos hay un sobre con letras y números desordenados."]
+stages[2]["intro"] = ["A un lado de la Biblioteca están los lockers. Detrás de la caneca que está al frente de los lockers hay un sobre con letras y números desordenados."]
 stages[2]["pattern"] = "E_ L_C__R __"
 stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
 stages[4]["intro"] = ["En el sobre hay cinco tarjetas casi iguales. Antes de mirarlas, resuelve esto."]
