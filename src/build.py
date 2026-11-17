@@ -19,8 +19,8 @@ common = [
       reveal=dict(label="Mensaje del QR 2", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4: Bloque B. Busquen detrás del cartel de ruta de evacuación.")),
  dict(tag="4", title="El objeto desaparecido", place="Bloque B, cartel de ruta de evacuación",
       intro=["Sobre la mesa hay cinco objetos casi iguales. Antes de tocarlos, resuelve tu reto."],
-      reveal=dict(label="La llave marcada", text="Es una llave. De las cinco tarjetas de llaves del sobre, solo una tiene una marca distintiva. Encuéntrenla y lean lo que lleva escrito: “No todas las puertas conducen a una salida. Algunas conducen directamente a la verdad”.", next="La llave marcada señala la estación 5: la entrada del Bloque H. Busquen debajo de la silla marcada.")),
- dict(tag="5", title="El código del sospechoso", place="Entrada del Bloque H",
+      reveal=dict(label="La llave marcada", text="Es una llave. De las cinco tarjetas de llaves del sobre, solo una tiene una marca distintiva. Encuéntrenla y lean lo que lleva escrito: “No todas las puertas conducen a una salida. Algunas conducen directamente a la verdad”.", next="La llave marcada señala la estación 5: Bloque H. Busquen debajo de las escaleras.")),
+ dict(tag="5", title="El código del sospechoso", place="Bloque H, debajo de las escaleras",
       intro=["Cuatro sospechosos dejaron su declaración. Compárala con lo que tu equipo ya sabe."],
       reveal=dict(label="Mensaje del QR 3", text="Guarden la coartada de Martín, la de la biblioteca, como una afirmación por comprobar. Todavía no han revisado toda la información: una evidencia anterior puede tener otro significado.", next="")),
 ]
