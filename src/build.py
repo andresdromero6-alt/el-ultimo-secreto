@@ -10,8 +10,8 @@ common = [
       reveal=dict(label="Primera parada", text="Una banca. Detrás del Bloque C hay 2: una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan a las 2 bancas que están detrás del Bloque C y encuentren la marcada.")),
  dict(tag="1", title="La primera evidencia", place="2 bancas detrás del Bloque C",
       intro=["En el sobre de la banca hay una fotografía de Daniel y una nota: el tiempo es clave para reconstruir los hechos."],
-      reveal=dict(label="Mensaje del QR 1", text="Busquen un reloj o la imagen de un reloj: a su lado está el QR 1. La siguiente señal los espera cerca del locker #.", next="Vayan a la estación 2: Bloque A.")),
- dict(tag="2", title="El mensaje oculto", place="Bloque A",
+      reveal=dict(label="Mensaje del QR 1", text="Busquen un reloj o la imagen de un reloj: a su lado está el QR 1. La siguiente señal los espera cerca del locker #.", next="Vayan a la estación 2: los lockers que están a un lado de la Biblioteca.")),
+ dict(tag="2", title="El mensaje oculto", place="Lockers a un lado de la Biblioteca",
       intro=["Daniel escondió el mismo lugar de cuatro maneras, una para cada investigador."],
       reveal=dict(label="Nota dentro del locker #", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: el kiosco que está al frente del Bloque D.")),
  dict(tag="3", title="El testigo silencioso", place="Kiosco al frente del Bloque D",
@@ -139,7 +139,7 @@ for k, c in enumerate(common):
     s = dict(c); s.update(roles[SRC[k]]["ch"][k]); s["owner"] = OWN[k]; stages.append(s)
 stages[0]["intro"] = ["Ya tienen sus tarjetas de rol, sus pulseras y el mensaje de Daniel. La primera señal es para todos."]
 stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
-stages[2]["intro"] = ["Sobre la mesa hay ocho letras desordenadas."]
+stages[2]["intro"] = ["Junto a los lockers hay un sobre con ocho letras desordenadas."]
 stages[2]["pattern"] = "E_ L_C__R"
 stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
 stages[4]["intro"] = ["Sobre la mesa hay cinco objetos casi iguales. Antes de tocarlos, resuelve esto."]
