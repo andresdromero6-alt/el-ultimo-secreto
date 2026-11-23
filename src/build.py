@@ -6,7 +6,7 @@ TEST = "“Vi a Daniel entrar a las 7:00”.\n“Escuché una discusión a las 7
 
 common = [
  dict(tag="Inicio", title="La primera señal", place="Salón de clase",
-      intro=["Ya tienes tu tarjeta de rol, tu pulsera y el mensaje de Daniel. La primera señal le llega a cada investigador de una forma distinta. Esta es la tuya."],
+      intro=["Ya tienes tu pulsera y el mensaje de Daniel. La primera señal le llega a cada investigador de una forma distinta. Esta es la tuya."],
       reveal=dict(label="Primera parada", text="Una banca. Detrás del Bloque C hay 2: una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan a las 2 bancas que están detrás del Bloque C y busquen debajo de la marcada.")),
  dict(tag="1", title="La primera evidencia", place="2 bancas detrás del Bloque C",
       intro=["En el sobre de la banca hay una fotografía de Daniel y una nota: el tiempo es clave para reconstruir los hechos."],
@@ -137,7 +137,7 @@ SRC = ["detective", "detective", "criptografo", "detective", "detective", "detec
 stages = []
 for k, c in enumerate(common):
     s = dict(c); s.update(roles[SRC[k]]["ch"][k]); s["owner"] = OWN[k]; stages.append(s)
-stages[0]["intro"] = ["Ya tienen sus tarjetas de rol, sus pulseras y el mensaje de Daniel. La primera señal es para todos."]
+stages[0]["intro"] = ["Ya tienen sus pulseras y el mensaje de Daniel. La primera señal es para todos."]
 stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
 stages[2]["intro"] = ["A un lado de la Biblioteca están los lockers. Pegado al costado de los lockers hay un sobre con letras y números desordenados."]
 stages[2]["pattern"] = "E_ L_C__R __"
@@ -168,7 +168,7 @@ finale = dict(
   "La coartada de Martín sigue sin comprobarse.",
  ],
  clueLabel="La última pista",
- clue="Lo que sigue está hecho pedazos, en un sobre detrás del cartel de «Visión», en el Bloque D. Únanlo y lean lo que dice por los dos lados. De ahí en adelante no saldrán de ese bloque hasta encontrar el último destino.",
+ clue="Lo que sigue los espera detrás del cartel de «Visión», en el Bloque D. De ahí en adelante cada pista escondida trae el acertijo que lleva a la siguiente, y no saldrán de ese bloque hasta encontrar el último destino.",
  closing="Observen, comparen y confíen en su equipo. Suerte, investigadores.",
 )
 
