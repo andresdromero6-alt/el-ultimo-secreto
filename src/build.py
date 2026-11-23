@@ -168,7 +168,7 @@ finale = dict(
   "La coartada de Martín sigue sin comprobarse.",
  ],
  clueLabel="La última pista",
- clue="Lo que sigue está hecho pedazos en un sobre, debajo de una mesa del kiosco que está al lado del Bloque C. Únanlo y lean lo que dice por los dos lados. Y no olviden esto: una evidencia que ya vieron puede tener otro significado.",
+ clue="Lo que sigue está hecho pedazos, en un sobre detrás del cartel de «Visión», en el Bloque D. Únanlo y lean lo que dice por los dos lados. De ahí en adelante no saldrán de ese bloque hasta encontrar el último destino.",
  closing="Observen, comparen y confíen en su equipo. Suerte, investigadores.",
 )
 
