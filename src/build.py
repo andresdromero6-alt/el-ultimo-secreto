@@ -5,7 +5,7 @@ DECL = "Samuel: “Nunca conocí a Daniel”.\nMartín: “Estuve en la bibliote
 TEST = "“Vi a Daniel entrar a las 7:00”.\n“Escuché una discusión a las 7:30”.\n“A las 8:00, alguien salió apresuradamente”."
 
 common = [
- dict(tag="Inicio", title="La escena del crimen", place="Salón A203",
+ dict(tag="Inicio", title="La escena del crimen", place="Salón A202",
       intro=["Ya tienes tu pulsera y el mensaje de Daniel. La primera señal le llega a cada investigador de una forma distinta. Esta es la tuya."],
       reveal=dict(label="Primera parada", text="Una banca. Detrás del Bloque C hay 2: una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan a las 2 bancas que están detrás del Bloque C y busquen debajo de la marcada.")),
  dict(tag="1", title="La primera evidencia", place="2 bancas detrás del Bloque C",
