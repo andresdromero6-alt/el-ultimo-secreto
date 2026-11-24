@@ -14,9 +14,9 @@ common = [
  dict(tag="2", title="El mensaje oculto", place="Lockers a un lado de la Biblioteca",
       intro=["Daniel escondió el mismo lugar de cuatro maneras, una para cada investigador."],
       reveal=dict(label="Dentro del locker 37", text="Abran el locker 37 con la llave del sobre. Dentro está la declaración de otro sospechoso y la pista hacia el siguiente lugar: alguien estuvo revisando las pertenencias de Daniel antes del asesinato.", next="Esa pista señala la estación 3: el kiosco que está al frente del Bloque D. Busquen debajo de la mesa marcada.")),
- dict(tag="3", title="El testigo silencioso", place="Kiosco al frente del Bloque D",
-      intro=["Un testigo dejó tres declaraciones sobre esa noche. Cada investigador debe sacarles algo distinto."],
-      reveal=dict(label="Nota debajo de la silla", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4: Bloque B. Busquen detrás del cartel de ruta de evacuación.")),
+ dict(tag="3", title="La cronología de esa noche", place="Kiosco al frente del Bloque D",
+      intro=["Las declaraciones que han reunido fijan tres momentos."],
+      reveal=dict(label="Evidencia", text="Lo que esa persona llevaba en la mano era una llave. Daniel no se la había dado a nadie.", next="Vayan a la estación 4: Bloque B. Busquen detrás del cartel de ruta de evacuación.")),
  dict(tag="4", title="El objeto desaparecido", place="Bloque B, cartel de ruta de evacuación",
       intro=["Sobre la mesa hay cinco objetos casi iguales. Antes de tocarlos, resuelve tu reto."],
       reveal=dict(label="La llave marcada", text="Es una llave. De las cinco tarjetas de llaves del sobre, solo una tiene una marca distintiva. Encuéntrenla y lean lo que lleva escrito: “No todas las puertas conducen a una salida. Algunas conducen directamente a la verdad”.", next="La llave marcada señala la estación 5: Bloque H. Busquen debajo de las escaleras.")),
@@ -46,10 +46,10 @@ roles = dict(
    dict(type="text", clue="Tengo puertas y no soy casa. Guardo ropa y también secretos. Cuando me cierran, nadie ve lo que llevo dentro.",
         question="¿Dónde escondería Daniel algo que nadie debe ver?", pattern="A_M__I_", accept=ARMARIO + ["closet", "elcloset", "ropero", "elropero", "guardarropa"],
         hints=["Es un mueble.", "Tiene puertas y sirve para guardar ropa.", "La respuesta es ARMARIO."]),
-   dict(type="order", question="Toca las declaraciones en el orden en que ocurrieron.",
-        items=[dict(text="A las 8:00, alguien salió apresuradamente."), dict(text="Vi a Daniel entrar a las 7:00."), dict(text="Escuché una discusión a las 7:30.")],
+   dict(type="order", question="Toca los tres momentos en el orden en que ocurrieron.",
+        items=[dict(text="A las 8:00, alguien salió con prisa llevando algo en la mano."), dict(text="A las 5:00, Daniel dijo por teléfono que alguien había revisado sus cosas."), dict(text="A las 7:30 se escuchó una discusión en la habitación.")],
         correct=[1, 2, 0], wrong="Ese orden no cuadra con las horas. Inténtalo de nuevo.",
-        hints=["Ordena las horas de menor a mayor.", "Primero la entrada, después la discusión y al final la salida.", "El orden es 7:00, 7:30 y 8:00."]),
+        hints=["Ordena las horas de menor a mayor.", "Primero la llamada, después la discusión y al final la salida.", "El orden es 5:00, 7:30 y 8:00."]),
    dict(type="text", clue="Tengo dientes, pero no como. Abro puertas, pero no tengo manos. ¿Qué soy?",
         question="¿Qué es?", pattern="L_A__", accept=LLAVE,
         hints=["Abre algo que está cerrado.", "Tiene dientes y entra en una cerradura.", "La respuesta es LLAVE."]),
@@ -71,7 +71,7 @@ roles = dict(
    dict(type="text", clue="Diez fichas revueltas: ocho letras y dos números. Forman dos palabras y un número.", tiles=list("R7EKL3OCLE"),
         question="¿Qué dicen las letras?", pattern="E_ L____R", accept=ARMARIO,
         hints=["Forman el nombre de un lugar donde se guardan cosas bajo llave, con su número.", "Empieza con EL, sigue una palabra que empieza con L y termina en R, y al final va un número de dos cifras.", "La respuesta es EL LOCKER 37."]),
-   dict(type="text", clue="El testigo escribió una de sus declaraciones al revés para que nadie más la leyera:\n\n" + "A las 8:00, alguien salió apresuradamente."[::-1],
+   dict(type="text", clue="Una de las declaraciones estaba escrita al revés:\n\n" + "A las 8:00, alguien salió apresuradamente."[::-1],
         question="¿A qué hora salió alguien apresuradamente?", accept=["800", "8", "ocho", "lasocho", "alasocho", "alas8", "alas800", "las8", "las800", "8pm", "8am"],
         hints=["Lee el mensaje de derecha a izquierda.", "La hora está casi al final del texto que ves.", "Salió a las 8:00."]),
    dict(type="text", clue="Daniel dejó esta palabra frente a un espejo:\n\nE V A L L",
@@ -95,7 +95,7 @@ roles = dict(
         question="¿Qué decía el mensaje?", pattern="_L _RM_R__", accept=ARMARIO,
         hints=["Son dos palabras y la primera es un artículo.", "Es un mueble donde se guarda ropa.", "La respuesta es EL ARMARIO."]),
    dict(type="text", clue=TEST,
-        question="Lee con cuidado. ¿Qué escuchó el testigo a las 7:30?", pattern="D_S_U__ON", accept=["discusion", "unadiscusion", "ladiscusion"],
+        question="Lee con cuidado. ¿Qué se escuchó a las 7:30?", pattern="D_S_U__ON", accept=["discusion", "unadiscusion", "ladiscusion"],
         hints=["La respuesta está en la segunda declaración.", "Fue algo que se oye, entre dos personas.", "Escuchó una DISCUSIÓN."]),
    dict(type="text", clue="Soy pequeña y de metal. Viajo en bolsillos y cuelgo de un aro. Si me pierdes, te quedas afuera.",
         question="¿Qué objeto debes revisar en la mesa?", pattern="L_A__", accept=LLAVE,
@@ -125,10 +125,10 @@ roles = dict(
         question="¿Qué objeto queda?", items=[dict(who="Moneda"), dict(who="Peine"), dict(who="Anillo"), dict(who="Llave"), dict(who="Botón")],
         correct=[3], wrong="Ese objeto no cumple las tres condiciones. Revisa la lista.",
         hints=["Tacha los objetos uno por uno.", "Debe ser de metal, tener dientes y abrir algo.", "Queda la LLAVE."]),
-   dict(type="choice", clue=DECL + "\n\nDescarta a quien no nombra ningún lugar.\nDescarta a quien habla como testigo y no de sí mismo.\nDescarta a quien dice no haberse movido.",
+   dict(type="choice", clue=DECL + "\n\nDescarta a quien no nombra ningún lugar.\nDescarta a quien cuenta lo que vio y no lo que hizo.\nDescarta a quien dice no haberse movido.",
         question="¿Quién queda con una coartada por comprobar?", items=SUS,
         correct=[1], wrong="Esa persona queda descartada por una de las tres reglas. Vuelve a aplicarlas.",
-        hints=["Aplica las reglas en orden y tacha un nombre con cada una.", "Samuel no nombra un lugar, Laura es testigo y Andrés no se movió.", "Queda MARTÍN."]),
+        hints=["Aplica las reglas en orden y tacha un nombre con cada una.", "Samuel no nombra un lugar, Laura cuenta lo que vio y Andrés no se movió.", "Queda MARTÍN."]),
   ]),
 )
 
@@ -141,14 +141,14 @@ stages[0]["intro"] = ["Ya tienen sus pulseras y el mensaje de Daniel. La primera
 stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
 stages[2]["intro"] = ["El acertijo de detrás del reloj los lleva al sobre pegado al costado de los lockers: dentro hay una llave y otra declaración. Estas fichas dicen qué locker abre."]
 stages[2]["pattern"] = "E_ L_C__R __"
-stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
+stages[3]["intro"] = ["Las declaraciones que han reunido fijan tres momentos de esa noche."]
 stages[4]["intro"] = ["En el sobre hay cinco tarjetas casi iguales. Antes de mirarlas, resuelve esto."]
 stages[5]["intro"] = ["Reúnan las cuatro declaraciones que encontraron en los sobres de las estaciones 1 a 4. Discútanlas entre los cuatro y respondan lo mismo en cada teléfono."]
 for k in (1, 2, 3, 4):
     stages[k]["reveal"] = dict(stages[k]["reveal"])
     stages[k]["reveal"]["text"] += "\n\nEn el sobre de esta estación hay también la declaración de un sospechoso. Guárdenla: la necesitarán en la estación 5."
 META = dict(
- detective=("Tu estación: la 3, el testigo.", "Tu trabajo es dudar y comparar versiones. Te toca responder la estación 3. En las demás acompañas a tu equipo, y la quinta la resuelven entre todos."),
+ detective=("Tu estación: la 3, la cronología.", "Tu trabajo es dudar y comparar versiones. Te toca responder la estación 3. En las demás acompañas a tu equipo, y la quinta la resuelven entre todos."),
  criptografo=("Tu estación: la 2, el mensaje oculto.", "Tú lees lo que los demás no pueden leer. Te toca responder la estación 2. En las demás acompañas a tu equipo, y la quinta la resuelven entre todos."),
  investigador=("Tu estación: la 4, el objeto.", "Tú eres los ojos del equipo. Te toca responder la estación 4. En las demás acompañas a tu equipo, y la quinta la resuelven entre todos."),
  estratega=("Tu estación: la 1, la primera evidencia.", "Tú resuelves acertijos y pones orden. Te toca responder la estación 1. En las demás acompañas a tu equipo, y la quinta la resuelven entre todos."),
@@ -163,7 +163,7 @@ finale = dict(
  lead="Esto es lo que sabe tu equipo hasta ahora:",
  evidence=[
   "Alguien revisó las pertenencias de Daniel antes del crimen.",
-  "El testigo vio a Daniel entrar a las 7:00, oyó una discusión a las 7:30 y vio salir a alguien con prisa a las 8:00.",
+  "Laura oyó una discusión a las 7:30 y, poco antes de las ocho, vio salir a alguien con prisa llevando algo en la mano.",
   "Esa noche, una persona tenía una llave que no debía tener.",
   "La coartada de Martín sigue sin comprobarse.",
  ],
