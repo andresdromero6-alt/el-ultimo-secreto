@@ -159,7 +159,7 @@ answers = [dict(owner=s["owner"], type=s["type"], a=s.get("accept", [None])[0], 
 
 finale = dict(
  title="El camino sigue por su cuenta",
- intro="Aquí terminan tus sobres. Quedan cinco estaciones y ya no habrá nadie que les confirme las respuestas: sigan las señales de Daniel hasta encontrar al responsable y el tesoro.",
+ intro="La página web los ha acompañado hasta este punto, pero ahora comienza una nueva etapa. Diríjanse al Bloque D, donde deberán seguir las pistas ocultas para continuar su aventura.",
  lead="Esto es lo que sabe tu equipo hasta ahora:",
  evidence=[
   "Alguien revisó las pertenencias de Daniel antes del crimen.",
@@ -167,8 +167,8 @@ finale = dict(
   "Esa noche, una persona tenía una llave que no debía tener.",
   "La coartada de Martín sigue sin comprobarse.",
  ],
- clueLabel="La última pista",
- clue="Lo que sigue los espera detrás del cartel de «Visión», en el Bloque D. De ahí en adelante cada pista escondida trae el acertijo que lleva a la siguiente, y no saldrán de ese bloque hasta encontrar el último destino.",
+ clueLabel="El acertijo del Bloque D",
+ clue="Para continuar su misión, deberán observar con atención. Hay algo que todos pueden mirar, pero pocos logran encontrar. Detrás de un mensaje que habla del futuro y de lo que queremos alcanzar, un sobre escondido los estará esperando. ¿Dónde estará?",
  closing="Observen, comparen y confíen en su equipo. Suerte, investigadores.",
 )
 
