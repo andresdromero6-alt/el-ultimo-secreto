@@ -9,11 +9,11 @@ common = [
       intro=["Ya tienes tu pulsera y el mensaje de Daniel. La primera señal le llega a cada investigador de una forma distinta. Esta es la tuya."],
       reveal=dict(label="Primera parada", text="Una banca. Detrás del Bloque C hay 2: una de ellas está marcada discretamente y guarda el primer sobre.", next="Vayan a las 2 bancas que están detrás del Bloque C y busquen debajo de la marcada.")),
  dict(tag="1", title="La primera evidencia", place="2 bancas detrás del Bloque C",
-      intro=["En el sobre de la banca hay una fotografía de Daniel y una nota: el tiempo es clave para reconstruir los hechos."],
-      reveal=dict(label="Nota detrás del reloj", text="Busquen el reloj: está debajo de los lockers. Detrás tiene una nota con el número del locker, y la llave de ese locker pegada al papel.", next="Vayan a la estación 2: los lockers que están a un lado de la Biblioteca.")),
+      intro=["En el sobre de la banca hay una fotografía de Daniel, la declaración de un sospechoso y este acertijo."],
+      reveal=dict(label="El reloj", text="El reloj está debajo de los lockers, a un lado de la Biblioteca. Detrás tiene otro acertijo, y nada más.", next="Vayan a la estación 2: los lockers que están a un lado de la Biblioteca.")),
  dict(tag="2", title="El mensaje oculto", place="Lockers a un lado de la Biblioteca",
       intro=["Daniel escondió el mismo lugar de cuatro maneras, una para cada investigador."],
-      reveal=dict(label="Nota dentro del locker 37", text="Daniel guardaba sus secretos donde nadie acostumbraba mirar. Sin embargo, alguien estuvo revisando sus pertenencias antes del asesinato.", next="La fotografía que acompaña la nota señala la estación 3: el kiosco que está al frente del Bloque D. Busquen debajo de la mesa marcada.")),
+      reveal=dict(label="Dentro del locker 37", text="Abran el locker 37 con la llave del sobre. Dentro está la declaración de otro sospechoso y la pista hacia el siguiente lugar: alguien estuvo revisando las pertenencias de Daniel antes del asesinato.", next="Esa pista señala la estación 3: el kiosco que está al frente del Bloque D. Busquen debajo de la mesa marcada.")),
  dict(tag="3", title="El testigo silencioso", place="Kiosco al frente del Bloque D",
       intro=["Un testigo dejó tres declaraciones sobre esa noche. Cada investigador debe sacarles algo distinto."],
       reveal=dict(label="Nota debajo de la silla", text="El testigo recuerda algo más: esa noche, una persona tenía una llave que no debía tener.", next="Vayan a la estación 4: Bloque B. Busquen detrás del cartel de ruta de evacuación.")),
@@ -139,7 +139,7 @@ for k, c in enumerate(common):
     s = dict(c); s.update(roles[SRC[k]]["ch"][k]); s["owner"] = OWN[k]; stages.append(s)
 stages[0]["intro"] = ["Ya tienen sus pulseras y el mensaje de Daniel. La primera señal es para todos."]
 stages[0]["question"] = "¿Qué deben buscar en el Bloque C?"
-stages[2]["intro"] = ["A un lado de la Biblioteca están los lockers. Pegado al costado de los lockers hay un sobre con letras y números desordenados."]
+stages[2]["intro"] = ["El acertijo de detrás del reloj los lleva al sobre pegado al costado de los lockers: dentro hay una llave y otra declaración. Estas fichas dicen qué locker abre."]
 stages[2]["pattern"] = "E_ L_C__R __"
 stages[3]["intro"] = ["Un testigo dejó tres declaraciones sobre esa noche."]
 stages[4]["intro"] = ["En el sobre hay cinco tarjetas casi iguales. Antes de mirarlas, resuelve esto."]
